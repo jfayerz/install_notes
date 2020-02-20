@@ -12,11 +12,15 @@
 for the purposes of example the device name is "ada0"
 
 - Remove Existing partitions
+
   gpart destroy -F ada0
 - Create GPT slice (partition)
+
   gpart create -s gpt ada0
 - Now ada0p1 should exist in /dev/
 - CREATE the FFS slice (filling the entire platter)
+
   gpart add -t freebsd-ufs ada0
 - format the slice
+
   newfs -U /dev/ada0p1
